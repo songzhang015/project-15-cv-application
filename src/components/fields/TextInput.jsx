@@ -4,8 +4,8 @@ import { useState } from "react";
 import "../../styles/Inputs.css";
 import SectionTabs from "./SectionTabs";
 
-function Inputs({ label, placeholder, value, onChange }) {
-    return <div className="inputs"></div>;
+function TextInput({ label, value, onChange }) {
+    return <div className="text-input"></div>;
 }
 
-export default Inputs;
+export default TextInput;

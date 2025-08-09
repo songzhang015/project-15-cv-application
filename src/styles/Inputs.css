@@ -1,0 +1,36 @@
+/* Inputs.css */
+
+.inputs {
+    border: 1px solid black;
+    min-width: 500px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.section-tabs {
+    display: flex;
+}
+
+.section-tab {
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.section-tab:hover {
+    background-color: rgb(220, 220, 220); /* TEMPORARY COLOR TO BE CHANGED */
+}
+
+.section-tab:first-child {
+    border-top-left-radius: 32px;
+    border-bottom-left-radius: 32px;
+}
+
+.section-tab:last-child {
+    border-top-right-radius: 32px;
+    border-bottom-right-radius: 32px;
+}

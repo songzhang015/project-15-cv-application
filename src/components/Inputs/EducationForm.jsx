@@ -1,14 +1,9 @@
 // EducationForm.jsx
 
-import '../../styles/Inputs.css'
+import "../../styles/Inputs.css";
 
 function EducationForm() {
-
-    return (
-        <div className="education-form">
-            This is the education form
-        </div>
-    )
+    return <div className="education-form">This is the education form</div>;
 }
 
-export default EducationForm
+export default EducationForm;

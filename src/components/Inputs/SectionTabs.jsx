@@ -1,19 +1,39 @@
 // SectionTabs.jsx
 
-import { useState } from 'react'
-import '../../styles/Inputs.css'
+import "../../styles/Inputs.css";
 
-function SectionTabs() {
+function SectionTabs({ activeTab, onTabChange }) {
     // const [count, setCount] = useState(0)
 
     return (
         <div className="section-tabs">
-            <button className="section-tab">General</button>
-            <button className="section-tab">Experience</button>
-            <button className="section-tab">Education</button>
-            <button className="section-tab">Skills</button>
+            <button
+                onClick={() => onTabChange("general")}
+                className="section-tab"
+            >
+                General
+            </button>
+
+            <button
+                onClick={() => onTabChange("experience")}
+                className="section-tab"
+            >
+                Experience
+            </button>
+            <button
+                onClick={() => onTabChange("education")}
+                className="section-tab"
+            >
+                Education
+            </button>
+            <button
+                onClick={() => onTabChange("skills")}
+                className="section-tab"
+            >
+                Skills
+            </button>
         </div>
-    )
+    );
 }
 
-export default SectionTabs
+export default SectionTabs;

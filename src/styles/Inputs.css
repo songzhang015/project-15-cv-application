@@ -25,6 +25,10 @@
     background-color: rgb(220, 220, 220); /* TEMPORARY COLOR TO BE CHANGED */
 }
 
+.section-tab.active {
+    background-color: rgb(189, 192, 198); /* TEMPORARY COLOR TO BE CHANGED */
+}
+
 .section-tab:first-child {
     border-top-left-radius: 32px;
     border-bottom-left-radius: 32px;

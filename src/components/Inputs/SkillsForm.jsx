@@ -1,21 +1,12 @@
 // SkillsForm.jsx
 
 import "../../styles/Inputs.css";
-import { useState } from "react";
 import TextInput from "../fields/TextInput";
 import TextArea from "../fields/TextArea";
 
-function SkillsForm() {
-	const [formData, setFormData] = useState({
-		skill: "Skill",
-		description:
-			"Lorem ipsum dolor sit amet consectetur adipiscing elit. " +
-			"Quisque faucibus ex sapien vitae pellentesque sem placerat. " +
-			"In id cursus mi pretium tellus duis convallis.",
-	});
-
+function SkillsForm({ formData, onFormChange, onSave, onDelete }) {
 	function handleInputChange(field, value) {
-		setFormData((prev) => ({ ...prev, [field]: value }));
+		onFormChange({ ...formData, [field]: value });
 	}
 
 	return (
@@ -32,6 +23,15 @@ function SkillsForm() {
 				value={formData.description}
 				onChange={(value) => handleInputChange("description", value)}
 			/>
+
+			<div className="form-actions">
+				<button type="button" className="save-input-btn" onClick={onSave}>
+					Save
+				</button>
+				<button type="button" className="delete-input-btn" onClick={onDelete}>
+					Delete
+				</button>
+			</div>
 		</form>
 	);
 }

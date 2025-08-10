@@ -1,21 +1,12 @@
 // EducationForm.jsx
 
 import "../../styles/Inputs.css";
-import { useState } from "react";
 import TextInput from "../fields/TextInput";
 import TextArea from "../fields/TextArea";
 
-function EducationForm() {
-	const [formData, setFormData] = useState({
-		degree: "John Doe",
-		university: "john.doe@email.com",
-		location: "+1 (123) 456-7890",
-		startDate: "City, ST",
-		endDate: "City, ST",
-	});
-
+function EducationForm({ formData, onFormChange, onSave, onDelete }) {
 	function handleInputChange(field, value) {
-		setFormData((prev) => ({ ...prev, [field]: value }));
+		onFormChange({ ...formData, [field]: value });
 	}
 
 	return (
@@ -50,6 +41,15 @@ function EducationForm() {
 				value={formData.endDate}
 				onChange={(value) => handleInputChange("endDate", value)}
 			/>
+
+			<div className="form-actions">
+				<button type="button" className="save-input-btn" onClick={onSave}>
+					Save
+				</button>
+				<button type="button" className="delete-input-btn" onClick={onDelete}>
+					Delete
+				</button>
+			</div>
 		</form>
 	);
 }

@@ -1,7 +1,6 @@
 // ExperienceForm.jsx
 
 import "../../styles/Inputs.css";
-import { useState } from "react";
 import TextInput from "../fields/TextInput";
 import TextArea from "../fields/TextArea";
 
@@ -50,10 +49,10 @@ function ExperienceForm({ formData, onFormChange, onSave, onDelete }) {
 			/>
 
 			<div className="form-actions">
-				<button className="save-input-btn" onClick={onSave}>
+				<button type="button" className="save-input-btn" onClick={onSave}>
 					Save
 				</button>
-				<button className="delete-input-btn" onClick={onDelete}>
+				<button type="button" className="delete-input-btn" onClick={onDelete}>
 					Delete
 				</button>
 			</div>

@@ -11,6 +11,9 @@ import SkillsForm from "./SkillsForm";
 function Inputs() {
 	const [activeTab, setActiveTab] = useState("general");
 
+	const [editModeIndex, setEditModeIndex] = useState(null);
+
+	// Experiences
 	const [experiences, setExperiences] = useState([
 		{
 			jobRole: "Title",
@@ -24,8 +27,6 @@ function Inputs() {
 				"In id cursus mi pretium tellus duis convallis.",
 		},
 	]);
-
-	const [editModeIndex, setEditModeIndex] = useState(null);
 
 	function updateExperience(index, newData) {
 		setExperiences((prev) => {
@@ -52,6 +53,79 @@ function Inputs() {
 
 	function deleteExperience(index) {
 		setExperiences((prev) => prev.filter((experience, idx) => idx !== index));
+		setEditModeIndex(null);
+	}
+
+	// Education
+	const [educations, setEducations] = useState([
+		{
+			degree: "Degree in Major",
+			university: "University of State",
+			location: "City, ST",
+			startDate: "January 1234",
+			endDate: "December 1234",
+		},
+	]);
+
+	function updateEducation(index, newData) {
+		setEducations((prev) => {
+			const newEducations = [...prev];
+			newEducations[index] = newData;
+			return newEducations;
+		});
+	}
+
+	function addEducation() {
+		setEducations((prev) => [
+			...prev,
+			{
+				degree: "",
+				university: "",
+				location: "",
+				startDate: "",
+				endDate: "",
+			},
+		]);
+		setEditModeIndex(educations.length);
+	}
+
+	function deleteEducation(index) {
+		setEducations((prev) => prev.filter((education, idx) => idx !== index));
+		setEditModeIndex(null);
+	}
+
+	// Skills
+	const [skills, setSkills] = useState([
+		{
+			skill: "Skill",
+			description:
+				"Lorem ipsum dolor sit amet consectetur adipiscing elit. " +
+				"Quisque faucibus ex sapien vitae pellentesque sem placerat. " +
+				"In id cursus mi pretium tellus duis convallis.",
+		},
+	]);
+
+	function updateSkill(index, newData) {
+		setSkills((prev) => {
+			const newSkills = [...prev];
+			newSkills[index] = newData;
+			return newSkills;
+		});
+	}
+
+	function addSkill() {
+		setSkills((prev) => [
+			...prev,
+			{
+				skill: "",
+				description: "",
+			},
+		]);
+		setEditModeIndex(skills.length);
+	}
+
+	function deleteSkill(index) {
+		setSkills((prev) => prev.filter((skill, idx) => idx !== index));
 		setEditModeIndex(null);
 	}
 
@@ -94,9 +168,69 @@ function Inputs() {
 				</>
 			)}
 
-			{activeTab === "education" && <EducationForm />}
+			{activeTab === "education" && (
+				<>
+					{editModeIndex === null ? (
+						<>
+							{educations.map((education, index) => (
+								<div key={index}>
+									<div
+										key={index}
+										className="input-card"
+										onClick={() => setEditModeIndex(index)}
+									>
+										{education.degree || "New Education"}
+									</div>
+								</div>
+							))}
 
-			{activeTab === "skills" && <SkillsForm />}
+							<button className="new-card" onClick={addEducation}>
+								+ Add Education
+							</button>
+						</>
+					) : (
+						<EducationForm
+							formData={educations[editModeIndex]}
+							onFormChange={(newData) =>
+								updateEducation(editModeIndex, newData)
+							}
+							onSave={() => setEditModeIndex(null)}
+							onDelete={() => deleteEducation(editModeIndex)}
+						/>
+					)}
+				</>
+			)}
+
+			{activeTab === "skills" && (
+				<>
+					{editModeIndex === null ? (
+						<>
+							{skills.map((skill, index) => (
+								<div key={index}>
+									<div
+										key={index}
+										className="input-card"
+										onClick={() => setEditModeIndex(index)}
+									>
+										{skill.skill || "New Skill"}
+									</div>
+								</div>
+							))}
+
+							<button className="new-card" onClick={addSkill}>
+								+ Add Skill
+							</button>
+						</>
+					) : (
+						<SkillsForm
+							formData={skills[editModeIndex]}
+							onFormChange={(newData) => updateSkill(editModeIndex, newData)}
+							onSave={() => setEditModeIndex(null)}
+							onDelete={() => deleteSkill(editModeIndex)}
+						/>
+					)}
+				</>
+			)}
 		</div>
 	);
 }

@@ -1,11 +1,21 @@
 // TextInput.jsx
 
-import { useState } from "react";
 import "../../styles/Inputs.css";
-import SectionTabs from "./SectionTabs";
 
-function TextInput({ label, value, onChange }) {
-    return <div className="text-input"></div>;
+function TextInput({ id, label, value, onChange }) {
+	return (
+		<div className="text-input">
+			<label htmlFor={id} className="text-input-label">
+				{label}
+			</label>
+			<input
+				id={id}
+				value={value}
+				onChange={(e) => onChange(e.target.value)}
+				className="text-input-field"
+			></input>
+		</div>
+	);
 }
 
 export default TextInput;

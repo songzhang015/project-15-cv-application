@@ -5,21 +5,9 @@ import { useState } from "react";
 import TextInput from "../fields/TextInput";
 import TextArea from "../fields/TextArea";
 
-function ExperienceForm() {
-	const [formData, setFormData] = useState({
-		jobRole: "Title",
-		companyTitle: "Company",
-		companyLocation: "City, ST",
-		startDate: "January 1234",
-		endDate: "December 1234",
-		description:
-			"Lorem ipsum dolor sit amet consectetur adipiscing elit. " +
-			"Quisque faucibus ex sapien vitae pellentesque sem placerat. " +
-			"In id cursus mi pretium tellus duis convallis.",
-	});
-
+function ExperienceForm({ formData, onFormChange, onSave, onDelete }) {
 	function handleInputChange(field, value) {
-		setFormData((prev) => ({ ...prev, [field]: value }));
+		onFormChange({ ...formData, [field]: value });
 	}
 
 	return (
@@ -60,6 +48,15 @@ function ExperienceForm() {
 				value={formData.description}
 				onChange={(value) => handleInputChange("description", value)}
 			/>
+
+			<div className="form-actions">
+				<button className="save-input-btn" onClick={onSave}>
+					Save
+				</button>
+				<button className="delete-input-btn" onClick={onDelete}>
+					Delete
+				</button>
+			</div>
 		</form>
 	);
 }

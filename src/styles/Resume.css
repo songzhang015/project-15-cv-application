@@ -42,11 +42,11 @@
 }
 
 .resume-summary {
-	padding: 1rem;
+	padding: 2.5rem;
 }
 
 .resume-experience {
-	padding: 1rem;
+	padding: 2.5rem;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -54,14 +54,14 @@
 }
 
 .resume-education {
-	padding: 1rem;
+	padding: 2.5rem;
 	display: flex;
 	flex-direction: column;
 	gap: 0.25rem;
 }
 
 .resume-skills {
-	padding: 1rem;
+	padding: 2.5rem;
 	display: flex;
 	flex-direction: column;
 	gap: 0.25rem;

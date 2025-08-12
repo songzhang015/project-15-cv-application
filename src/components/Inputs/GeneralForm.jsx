@@ -1,24 +1,12 @@
 // GeneralForm.jsx
 
 import "../../styles/Inputs.css";
-import { useState } from "react";
 import TextInput from "../fields/TextInput";
 import TextArea from "../fields/TextArea";
 
-function GeneralForm() {
-	const [formData, setFormData] = useState({
-		fullName: "John Doe",
-		email: "john.doe@email.com",
-		phoneNumber: "+1 (123) 456-7890",
-		address: "City, ST",
-		summary:
-			"Lorem ipsum dolor sit amet consectetur adipiscing elit. " +
-			"Quisque faucibus ex sapien vitae pellentesque sem placerat. " +
-			"In id cursus mi pretium tellus duis convallis.",
-	});
-
+function GeneralForm({ formData, onFormChange }) {
 	function handleInputChange(field, value) {
-		setFormData((prev) => ({ ...prev, [field]: value }));
+		onFormChange((prev) => ({ ...prev, [field]: value }));
 	}
 
 	return (

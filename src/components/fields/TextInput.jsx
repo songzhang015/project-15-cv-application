@@ -1,7 +1,5 @@
 // TextInput.jsx
 
-import "../../styles/Inputs.css";
-
 function TextInput({ id, label, value, onChange }) {
 	return (
 		<div className="text-input">

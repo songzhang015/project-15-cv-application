@@ -49,11 +49,11 @@ function ExperienceForm({ formData, onFormChange, onSave, onDelete }) {
 			/>
 
 			<div className="form-actions">
-				<button type="button" className="save-input-btn" onClick={onSave}>
-					Save
-				</button>
 				<button type="button" className="delete-input-btn" onClick={onDelete}>
 					Delete
+				</button>
+				<button type="button" className="save-input-btn" onClick={onSave}>
+					Save
 				</button>
 			</div>
 		</form>

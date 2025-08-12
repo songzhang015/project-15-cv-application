@@ -1,7 +1,5 @@
 // TextArea.jsx
 
-import "../../styles/Inputs.css";
-
 function TextArea({ id, label, value, onChange }) {
 	return (
 		<div className="text-area">
@@ -13,6 +11,7 @@ function TextArea({ id, label, value, onChange }) {
 				value={value}
 				onChange={(e) => onChange(e.target.value)}
 				className="text-area-field"
+				rows={6}
 			></textarea>
 		</div>
 	);

@@ -1,13 +1,21 @@
 /* Inputs.css */
-
 .inputs {
 	border: 1px solid black;
-	min-width: 500px;
-	min-height: 500px;
+	width: 8.5in;
+	height: 11in;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	padding: 1rem;
+}
+
+input,
+textarea {
+	padding: 0.5rem 0.75rem;
+}
+
+label {
+	font-weight: 600;
 }
 
 .section-tabs {
@@ -20,6 +28,7 @@
 	border: 1px solid black;
 	cursor: pointer;
 	background-color: white;
+	margin-bottom: 1rem;
 }
 
 .section-tab:hover {
@@ -40,9 +49,48 @@
 	border-bottom-right-radius: 32px;
 }
 
+.form-actions {
+	display: flex;
+	justify-content: space-between;
+}
+
 .new-card {
 	cursor: pointer;
 	margin-top: 2.5rem;
+	padding: 0.4rem 0.8rem;
+	border: 1px solid rgb(180, 180, 180);
+	border-radius: 6px;
+	background-color: white;
+	transition: background-color 0.2s;
+	font-size: 1rem;
+}
+
+.new-card:hover {
+	background-color: rgb(240, 240, 240);
+}
+
+.save-input-btn,
+.delete-input-btn {
+	cursor: pointer;
+	padding: 0.2rem 0.4rem;
+	border: 1px solid rgb(180, 180, 180);
+	border-radius: 6px;
+	transition: filter 0.2s;
+	color: white;
+	font-weight: bold;
+}
+
+.save-input-btn {
+	background-color: #06b284;
+}
+
+.delete-input-btn {
+	background-color: #ef476f;
+}
+
+.save-input-btn:hover,
+.delete-input-btn:hover {
+	filter: brightness(92%);
 }
 
 .input-card {
@@ -64,10 +112,16 @@
 	flex-direction: column;
 }
 
-.experience-form {
+.general-form,
+.experience-form,
+.education-form,
+.skills-form {
 	border: 1px solid black;
 	padding: 1rem;
 	background-color: white;
-	width: 20rem;
-	margin: 0 auto;
+	width: 30rem;
+
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 }

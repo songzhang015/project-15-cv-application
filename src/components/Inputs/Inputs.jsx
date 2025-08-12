@@ -8,26 +8,26 @@ import ExperienceForm from "./ExperienceForm";
 import EducationForm from "./EducationForm";
 import SkillsForm from "./SkillsForm";
 
-function Inputs() {
+function Inputs({
+	generalData,
+	setGeneralData,
+	experiences,
+	setExperiences,
+	educations,
+	setEducations,
+	skills,
+	setSkills,
+}) {
 	const [activeTab, setActiveTab] = useState("general");
 
 	const [editModeIndex, setEditModeIndex] = useState(null);
 
-	// Experiences
-	const [experiences, setExperiences] = useState([
-		{
-			jobRole: "Title",
-			companyTitle: "Company",
-			companyLocation: "City, ST",
-			startDate: "January 1234",
-			endDate: "December 1234",
-			description:
-				"Lorem ipsum dolor sit amet consectetur adipiscing elit. " +
-				"Quisque faucibus ex sapien vitae pellentesque sem placerat. " +
-				"In id cursus mi pretium tellus duis convallis.",
-		},
-	]);
+	function handleTabChange(newTab) {
+		setActiveTab(newTab);
+		setEditModeIndex(null);
+	}
 
+	// Experience Functions
 	function updateExperience(index, newData) {
 		setExperiences((prev) => {
 			const newExperiences = [...prev];
@@ -56,17 +56,7 @@ function Inputs() {
 		setEditModeIndex(null);
 	}
 
-	// Education
-	const [educations, setEducations] = useState([
-		{
-			degree: "Degree in Major",
-			university: "University of State",
-			location: "City, ST",
-			startDate: "January 1234",
-			endDate: "December 1234",
-		},
-	]);
-
+	// Education Functions
 	function updateEducation(index, newData) {
 		setEducations((prev) => {
 			const newEducations = [...prev];
@@ -94,17 +84,7 @@ function Inputs() {
 		setEditModeIndex(null);
 	}
 
-	// Skills
-	const [skills, setSkills] = useState([
-		{
-			skill: "Skill",
-			description:
-				"Lorem ipsum dolor sit amet consectetur adipiscing elit. " +
-				"Quisque faucibus ex sapien vitae pellentesque sem placerat. " +
-				"In id cursus mi pretium tellus duis convallis.",
-		},
-	]);
-
+	// Skill Functions
 	function updateSkill(index, newData) {
 		setSkills((prev) => {
 			const newSkills = [...prev];
@@ -131,9 +111,11 @@ function Inputs() {
 
 	return (
 		<div className="inputs">
-			<SectionTabs activeTab={activeTab} onTabChange={setActiveTab} />
+			<SectionTabs activeTab={activeTab} onTabChange={handleTabChange} />
 
-			{activeTab === "general" && <GeneralForm />}
+			{activeTab === "general" && (
+				<GeneralForm formData={generalData} onFormChange={setGeneralData} />
+			)}
 
 			{activeTab === "experience" && (
 				<>

@@ -24,6 +24,7 @@ h4 {
 
 p {
 	font-size: 1.15rem;
+	overflow-wrap: break-word;
 }
 
 .resume {
@@ -33,6 +34,7 @@ p {
 	display: flex;
 	flex-direction: column;
 	background-color: white;
+	font-family: "Times New Roman", Arial, sans-serif;
 }
 
 .resume-header {

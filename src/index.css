@@ -1,15 +1,17 @@
 :root {
-    --bg-color: #f2f2f2;
+	--bg-color: #f2f2f2;
+	--btn-highlight-color: #dee2e6;
+	--btn-select-color: #adb5bd;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-    background-color: var(--bg-color);
-    display: flex;
-    justify-content: center;
+	background-color: var(--bg-color);
+	display: flex;
+	justify-content: center;
 }
